@@ -9,7 +9,11 @@ public class Calculator {
 
     public int divide (int opG, int opD)
     {
-        return opG/opD;
-    }
+        if (opG != 0 || opD != 0)
+        {
+            return opG/opD;
+        }
 
+        return 0;
+    }
 }
