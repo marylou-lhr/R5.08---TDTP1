@@ -4,6 +4,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.Set;
+
 import static org.assertj.core.api.Assertions.*;
 
 class CalculatorTest {
@@ -63,6 +65,25 @@ class CalculatorTest {
 
         //THEN
         assertThat(resultat).isEqualTo(0.25);
+    }
+
+    @Test
+    void ensembleChiffres_devrait_retourner_un_ensemble_correct()
+    {
+        //GIVEN
+        int nb1 = 7679;
+        int nb2 = -11;
+        Set<Integer> resultatAttendu1 = Set.of(6, 7, 9);
+        Set<Integer> resultatAttendu2 = Set.of(1);
+
+        //WHEN
+        Set<Integer> resultat1 = calculator.ensembleChiffres(nb1);
+        Set<Integer> resultat2 = calculator.ensembleChiffres(nb2);
+
+        //THEN
+        assertThat(resultat1).isEqualTo(resultatAttendu1);
+        assertThat(resultat2).isEqualTo(resultatAttendu2);
+
     }
 
 }
